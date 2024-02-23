@@ -1,0 +1,25 @@
+FROM node
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y git
+
+# Instalação do create-next-app globalmente
+RUN npm install -g create-next-app
+
+# Cria o projeto Next.js sem a necessidade de interação
+RUN yes | npx create-next-app@latest front
+
+# Define o diretório de trabalho como o diretório do projeto Next.js
+WORKDIR /app/front
+
+# Instala as dependências do projeto Next.js
+RUN npm install
+
+ENV NEXT_PUBLIC_PORT=3001
+
+# Expõe a porta 3000 para acessar o servidor Next.js
+EXPOSE 3001
+
+# Inicia o servidor Next.js
+CMD ["npm", "run", "dev", "--", "-p", "3001"]

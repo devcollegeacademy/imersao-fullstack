@@ -1,0 +1,20 @@
+# Use uma imagem base do Node.js
+FROM node:latest
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y git
+
+RUN npm install -g @nestjs/cli
+
+# Cria um novo projeto Nest.js com Yarn como gerenciador de pacotes
+RUN nest new back --package-manager npm
+
+WORKDIR /app/back
+
+# Instala as dependências do projeto Nest.js
+RUN npm install
+
+EXPOSE 3000
+
+CMD ["npm", "run", "start:dev"]
