@@ -13,3 +13,15 @@ services:
       dockerfile: Dockerfile.back
     ports:
       - 3000:3000
+  database: 
+    container_name: postgres
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: database 
+    expose:
+      - 5432
+    ports:
+      -5432:5432
