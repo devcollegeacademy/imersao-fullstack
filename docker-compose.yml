@@ -1,27 +1,52 @@
 version: '3.8'
 
 services:
-  frontend:
-    build:
-      context: .
-      dockerfile: Dockerfile.front
-    ports:
-      - 3001:3001
-  backend:
-    build:
-      context: .
-      dockerfile: Dockerfile.back
-    ports:
-      - 3000:3000
-  database: 
+  database:
+    container_name: imersao_database
     image: postgres
     restart: always
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: database 
+      POSTGRES_DB: guialocal
     expose:
       - 5432
     ports:
       - 5432:5432
 
+  backend:
+    container_name: imersao_backend
+    image: node:18
+    restart: always
+    working_dir: /app
+    environment:
+      - GOOGLE_AUTH_URI=https://accounts.google.com/o/oauth2/v2/auth?scope=email&include_granted_scopes=true&response_type=token&state=state_parameter_passthrough_value&redirect_uri=http://localhost:3001&client_id=975758659668-65l4an4t4tbha9g5bian8dbp85nqspm6.apps.googleusercontent.com
+      - DATABASE_HOST=imersao_database
+      - DATABASE_USER=postgres
+      - DATABASE_PASSWORD=postgres
+      - DATABASE_NAME=guialocal
+    volumes:
+      - ./maps-nest:/app
+    expose:
+      - 3000
+    ports:
+      - 3000:3000
+    command: sh -c 'yarn && yarn start:dev'
+    depends_on:
+      - database
+
+  frontend:
+    container_name: imersao_frontend
+    image: node:18
+    restart: always
+    working_dir: /app
+    volumes:
+      - ./maps-next:/app
+    expose:
+      - 3001
+    ports:
+      - 3001:3001
+    command: sh -c 'yarn && yarn dev -p 3001'
+    depends_on:
+      - backend
+  
