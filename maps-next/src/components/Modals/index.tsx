@@ -81,6 +81,7 @@ export default function Modal() {
                     }
                 });
             }
+            alert("Dados salvos com sucesso!");
         } catch (error: any) {
             alert("Erro ao enviar formulário " + error.message)
             console.error("Erro ao enviar formulário:", error);
