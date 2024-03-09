@@ -50,8 +50,6 @@
     - [Documentação oficial do Docker Compose](https://docs.docker.com/compose/)
     - Docker Compose é uma ferramenta para definir e executar aplicativos Docker multi-container.
 
-Esses recursos devem fornecer informações detalhadas sobre como usar e configurar cada uma das tecnologias listadas. Se você tiver dúvidas específicas sobre qualquer uma delas, a documentação oficial é um ótimo lugar para começar.
-
 ---
 
 - Essas documentações fornecem informações detalhadas sobre como usar cada uma das bibliotecas e APIs mencionadas no código. 
