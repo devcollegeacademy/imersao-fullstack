@@ -38,16 +38,17 @@
    - Jest é um framework de teste de JavaScript com foco na simplicidade.
 
 10. **React Testing Library**:
-   - [Documentação oficial do React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
-   - React Testing Library é uma ferramenta de teste que permite testar componentes React de forma mais eficaz.
+    - [Documentação oficial do React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+
+    - React Testing Library é uma ferramenta de teste que permite testar componentes React de forma mais eficaz.
 
 11. **Docker**:
-   - [Documentação oficial do Docker](https://docs.docker.com/)
-   - Docker é uma plataforma para desenvolvimento, envio e execução de aplicativos em contêineres.
+    - [Documentação oficial do Docker](https://docs.docker.com/)
+    - Docker é uma plataforma para desenvolvimento, envio e execução de aplicativos em contêineres.
 
 12. **Docker Compose**:
-   - [Documentação oficial do Docker Compose](https://docs.docker.com/compose/)
-   - Docker Compose é uma ferramenta para definir e executar aplicativos Docker multi-container.
+    - [Documentação oficial do Docker Compose](https://docs.docker.com/compose/)
+    - Docker Compose é uma ferramenta para definir e executar aplicativos Docker multi-container.
 
 Esses recursos devem fornecer informações detalhadas sobre como usar e configurar cada uma das tecnologias listadas. Se você tiver dúvidas específicas sobre qualquer uma delas, a documentação oficial é um ótimo lugar para começar.
 
