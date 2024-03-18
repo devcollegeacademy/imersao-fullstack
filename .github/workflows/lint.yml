@@ -1,0 +1,32 @@
+name: lint
+
+on:
+  push:
+    branches:
+      - sample_pipeline
+  
+  pull_request:
+    branches:
+      - sample_pipeline
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checar o branch
+        uses: actions/checkout@v2
+      
+      - name: use Node.js
+        uses: actions/setup-node@v2
+        with: 
+          node-version: "16"
+
+      - name: use Node.js
+        run: npm install
+        working-directory: maps-nest
+      
+      - name: Executar o lint
+        run: npm run lint
+        working-directory: maps-nest
+      
